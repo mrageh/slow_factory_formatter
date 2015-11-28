@@ -1,5 +1,4 @@
 require "terminal-table"
-require "active_support"
 require "rspec/core"
 require "rspec/core/formatters/documentation_formatter"
 require_relative "factories_table"
