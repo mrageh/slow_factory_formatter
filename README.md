@@ -1,4 +1,4 @@
-# SlowFactoryFormatter
+# SlowFactoryFormatter [ ![Codeship Status for mrageh/slow_factory_formatter](https://codeship.com/projects/a5090710-78c9-0133-0133-4ab273700aba/status?branch=master)](https://codeship.com/projects/118608)
 
 This gem is a custom RSpec formatter that allows you to generate a table of
 slow factories when you run your tests.
