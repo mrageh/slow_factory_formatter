@@ -3,22 +3,29 @@
 This gem is a custom RSpec formatter that allows you to generate a table of
 slow factories when you run your tests.
 
-My naive definition of a slow factory is any factory that takes more then half
-a second to setup or any factory that creates or builds more then five instances
-of itself.
+FactoryGirl uses ActiveSupport::Notifications instrumentation api which allows
+us track how much time is spent creating factories.
+
+This gem uses that api to display factories that take a long to setup.
+
+My naive definition of a slow factory is any factory that takes more then 0.5
+seconds to setup or any factory that creates or builds more then five instances
+of itself.  If a factory does either of those things then SlowFactoryFormatter
+will generate a table and add that factory as a row to that table.
 
 ## Why use SlowFactoryFormatter
 
 [FactoryGirl](https://github.com/thoughtbot/factory_girl) allows you to quickly
-and painlessly setup factories that you can use in your tests. The problem with
-[FactoryGirl](https://github.com/thoughtbot/factory_girl) is that it makes it
-very easy to write your factories in such a way that a valid factory can end up
-creating or building a big tree of objects. When you try to use a factory that
-sets up a lot of objects in a simple test case, you'll end up slowing down your
-test suite, unaware of just how many objects are being setup in the background.
+and painlessly setup factories that you can use in your tests.  You can then use
+them in your tests by calling `FactoryGirl.(build || create)(:some_factory)`
+and create a tree of objects, when really you only meant to create/instantiate
+one object for your test. When you try to use a factory that sets up a lot of
+objects in a simple test case, you'll end up slowing down your test suite,
+unaware that the reason why your test suite has slowed down is because how many
+objects are being setup in the background.
 
 This can quickly increase the time it takes a test suite to run and as a team
-grows it can really start to slow the time it takes your build to run.
+grows it can really start to slowdown the build.
 
 I've seen projects where one of the main causes of a slow build is the number of
 factories being setup in each example group.
@@ -29,7 +36,7 @@ the number of objects being setup, when you run a test.
 ## Installation
 
 This gem is intended to be used on a Rails project and you will need to have
-FactoryGirl, RSpec version 3.4 or later and ActiveSupport version 4 or
+FactoryGirl, RSpec version 3.4 or later and ActiveSupport version 3 or
 later in your project.
 
 To use this gem with a Rails project add this line to your Gemfile:
