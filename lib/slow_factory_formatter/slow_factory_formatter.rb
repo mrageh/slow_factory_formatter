@@ -1,4 +1,5 @@
 require "terminal-table"
+require 'active_support'
 require "rspec/core"
 require "rspec/core/formatters/documentation_formatter"
 require_relative "factories_table"
@@ -21,6 +22,7 @@ class SlowFactoryFormatter < RSpec::Core::Formatters::DocumentationFormatter
 
   def dump_summary(notification)
     factories_table.display_slow_factories
+
     super
   end
 
