@@ -1,12 +1,14 @@
 class FactoriesTable
-  attr_reader :factories
+  attr_reader :factories, :total_duration
 
   def initialize
     @factories = {}
+    @total_duration = 0
   end
 
   def add_factory(start:, finish:, payload:)
     execution_time_in_seconds = finish - start
+    @total_duration += execution_time_in_seconds
 
     factory_name = payload[:name]
     strategy_name = payload[:strategy]

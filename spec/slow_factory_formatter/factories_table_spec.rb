@@ -67,4 +67,18 @@ RSpec.describe FactoriesTable do
       end
     end
   end
+
+  describe '#total_duration' do
+    it 'tracks total duration of time spent setting up factories' do
+      start  = 1
+      finish = 3
+
+      subject.add_factory(start: start, finish: finish, payload: payload)
+      subject.add_factory(start: start, finish: finish, payload: payload)
+
+      expected = (finish - start) * 2
+
+      expect(subject.total_duration).to eq(expected)
+    end
+  end
 end
