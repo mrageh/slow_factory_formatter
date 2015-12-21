@@ -22,6 +22,7 @@ class SlowFactoryFormatter < RSpec::Core::Formatters::DocumentationFormatter
 
   def dump_summary(notification)
     factories_table.display_slow_factories
+    display_factory_duration(notification)
 
     super
   end
@@ -29,4 +30,12 @@ class SlowFactoryFormatter < RSpec::Core::Formatters::DocumentationFormatter
   private
 
   attr_reader :factories_table
+
+  def display_factory_duration(notification)
+    spec_time = notification.duration.to_f.round(2)
+    factory_time = factories_table.total_duration.to_f.round(2)
+    percentage = (factory_time / spec_time) * 100
+
+    puts "Tests took #{spec_time}s to run, factories took #{factory_time}s to setup. So #{percentage.round(1)}% of total test time was spent setting up factories"
+  end
 end

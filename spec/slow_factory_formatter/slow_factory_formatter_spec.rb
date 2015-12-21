@@ -8,6 +8,8 @@ RSpec.describe SlowFactoryFormatter do
 
   before do
     allow(subject).to receive(:factories_table).and_return(factories_table)
+    allow(factories_table).to receive(:total_duration).and_return(1)
+    allow(notification).to receive(:duration).and_return(2)
   end
 
   describe '#start' do
@@ -36,6 +38,16 @@ RSpec.describe SlowFactoryFormatter do
   describe '#dump_summary' do
     it 'displays table of slow factories' do
       expect(factories_table).to receive(:display_slow_factories)
+
+      subject.dump_summary(notification)
+    end
+
+    it 'calculates and appends the percentage of time factories were setup' do
+      expected_message = "Tests took 2.0s to run, factories took 1.0s to setup. So 50.0% of total test time was spent setting up factories"
+
+      allow(factories_table).to receive(:display_slow_factories)
+
+      expect($stdout).to receive(:puts).with(expected_message)
 
       subject.dump_summary(notification)
     end
