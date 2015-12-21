@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "slow_factory_formatter"
-  spec.version       = "0.1.0"
+  spec.version       = "0.2.1"
   spec.authors       = ["mrageh"]
   spec.email         = ["adam@mrageh.com"]
 
