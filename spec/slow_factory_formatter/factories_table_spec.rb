@@ -46,14 +46,6 @@ RSpec.describe FactoriesTable do
       it 'displays a table containing the data of the slow factories' do
         start  = 2
         finish = 9
-        table_headings = ['Factory Name', 'Create', 'Build', 'Build Stubbed', 'Total Time (in secs)']
-
-        table = Terminal::Table.new(
-          title: "Slow Factories",
-          headings: table_headings
-        )
-        row = [:user, 1, 0, 0, finish - start]
-        table << row
 
         subject.add_factory(start: start, finish: finish, payload: payload)
 
