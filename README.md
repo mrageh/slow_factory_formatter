@@ -67,15 +67,15 @@ rspec spec/models/user_spec --format SlowFactoryFormatter
 +------------------------------+--------+-------+---------------+----------------------+
 |                                    Slow Factories                                    |
 +------------------------------+--------+-------+---------------+----------------------+
-| Factory Name                 | Create | Build | Build Stubbed | Total Time (in secs) |
+| Factory Name                 | Create | Build | Build Stubbed | Total Time           |
 +------------------------------+--------+-------+---------------+----------------------+
-| user                         | 67     | 2     | 16            | 4.48                 |
-| product                      | 45     | 0     | 2             | 1.16                 |
-| order                        | 97     | 0     | 0             | 3.66                 |
-| admin                        | 49     | 12    | 1             | 3.02                 |
-| project                      | 33     | 40    | 34            | 4.33                 |
-| customer                     | 88     | 43    | 2             | 6.16                 |
-| manager                      | 12     | 23    | 0             | 1.10                 |
+| user                         | 67     | 2     | 16            | 4.48 seconds         |
+| product                      | 45     | 0     | 2             | 1.16 seconds         |
+| order                        | 97     | 0     | 0             | 3.66 seconds         |
+| admin                        | 49     | 12    | 1             | 3.02 seconds         |
+| project                      | 33     | 40    | 34            | 4.33 seconds         |
+| customer                     | 88     | 43    | 2             | 6.16 seconds         |
+| manager                      | 12     | 23    | 0             | 1.10 seconds         |
 +------------------------------+--------+-------+---------------+----------------------+
 ```
 

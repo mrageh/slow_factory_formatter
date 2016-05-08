@@ -38,7 +38,7 @@ class FactoriesTable
   end
 
   def populate_table
-    table_headings = ['Factory Name', 'Create', 'Build', 'Build Stubbed', 'Total Time (in secs)']
+    table_headings = ['Factory Name', 'Create', 'Build', 'Build Stubbed', 'Total Time']
     @table = Terminal::Table.new(
       title: "Slow Factories",
       headings: table_headings
@@ -58,8 +58,9 @@ class FactoriesTable
     end
 
     time_in_seconds = data.inject(0) { |acc, (_, prop)| acc += prop[:time_in_seconds] }
+    time_in_seconds = "#{time_in_seconds.round(2)} seconds"
 
-    row << time_in_seconds.round(2)
+    row << time_in_seconds
     table << row
   end
 end
