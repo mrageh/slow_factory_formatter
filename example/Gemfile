@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 rails_version = ENV['RAILS_VERSION'] || '4.0.0'
-#puts "<---- Installing Rails at version '#{rails_version}'"
+puts "<---- Installing Rails at version '#{rails_version}'"
 gem 'rails', rails_version
 gem 'slow_factory_formatter', :path => '..'
 
