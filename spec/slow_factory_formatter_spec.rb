@@ -29,7 +29,7 @@ RSpec.describe "When running Slow Factory Formatter" do
     command = <<-EXECUTE
       bundle install
       gem list
-      bundle exec rake db:migrate
+      bundle exec rake db:migrate RAILS_ENV=test
       bundle exec rspec
     EXECUTE
 
