@@ -34,7 +34,9 @@ RSpec.describe "When running Slow Factory Formatter" do
     EXECUTE
 
 
-    Open3.capture3(command, chdir: 'example')
+    Bundler.with_clean_env do
+      Open3.capture3(command, chdir: 'example')
+    end
   end
 
   def normalize_durations(output)
