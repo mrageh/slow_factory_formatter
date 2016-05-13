@@ -31,6 +31,7 @@ RSpec.describe "When running Slow Factory Formatter" do
       gem list
       bundle exec rake db:migrate RAILS_ENV=test
       bundle exec rspec
+      rm Gemfile.lock
     EXECUTE
 
 
