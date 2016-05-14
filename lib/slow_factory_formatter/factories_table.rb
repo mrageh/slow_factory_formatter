@@ -58,7 +58,8 @@ class FactoriesTable
     end
 
     time_in_seconds = data.inject(0) { |acc, (_, prop)| acc += prop[:time_in_seconds] }
-    time_in_seconds = "#{time_in_seconds.round(2)} seconds"
+    time_in_seconds = '%.2f' % time_in_seconds
+    time_in_seconds = "#{time_in_seconds} seconds"
 
     row << time_in_seconds
     table << row
