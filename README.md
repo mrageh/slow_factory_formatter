@@ -90,6 +90,14 @@ This will make SlowFactoryFormatter your default formatter and you'll see a
 table similar to the one above of slow factories whenever you run a test, unless
 you have no slow factories.
 
+## Credit
+
+[Michael Baldry](<https://github.com/mikebaldry>) initially introduced me to the
+idea of generating a table of slow factories.
+
+[Tom Stuart](<https://github.com/tomstuart>) suggested I turn this into a simple
+gem that can be reused on many projects.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/mrageh/slow_factory_formatter.
