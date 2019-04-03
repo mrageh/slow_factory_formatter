@@ -3,7 +3,7 @@
 This gem is a custom RSpec formatter that allows you to generate a table of
 slow factories when you run your tests.
 
-FactoryGirl uses ActiveSupport::Notifications instrumentation api which allows
+FactoryBot uses ActiveSupport::Notifications instrumentation api which allows
 us track how much time is spent creating factories.
 
 This gem uses that api to display factories that take a long to setup.
@@ -15,9 +15,9 @@ will generate a table and add that factory as a row to that table.
 
 ## Why use SlowFactoryFormatter
 
-[FactoryGirl](https://github.com/thoughtbot/factory_girl) allows you to quickly
+[FactoryBot](https://github.com/thoughtbot/factory_bot) allows you to quickly
 and painlessly setup factories that you can use in your tests.  You can then use
-them in your tests by calling `FactoryGirl.(build || create)(:some_factory)`
+them in your tests by calling `FactoryBot.(build || create)(:some_factory)`
 and create a tree of objects, when really you only meant to create/instantiate
 one object for your test. When you try to use a factory that sets up a lot of
 objects in a simple test case, you'll end up slowing down your test suite,
@@ -36,7 +36,7 @@ the number of objects being setup, when you run a test.
 ## Installation
 
 This gem is intended to be used on a Rails project and you will need to have
-FactoryGirl, RSpec version 3.4 or later and ActiveSupport version 3 or
+FactoryBot, RSpec version 3.4 or later and ActiveSupport version 3 or
 later in your project.
 
 To use this gem with a Rails project add this line to your Gemfile:
